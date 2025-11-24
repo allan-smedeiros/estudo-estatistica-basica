@@ -18,7 +18,7 @@ def criar_dataset():
   visitas = np.random.randint(1,51,num_usuarios)
 
   #Gerando valores dentro de uma distribuição normal, a fim de trazer dados ficticios próximos da "realidade"
-  #Onde existe uma relação entre a quantidade de visitas e o tempo total navegando no site.
+  #onde existe uma relação entre a quantidade de visitas e o tempo total navegando no site.
   tempo_no_site = np.random.normal(20,5,num_usuarios) + (visitas * 0.5)
   tempo_no_site = np.round(tempo_no_site,2)
 
@@ -26,7 +26,7 @@ def criar_dataset():
   itens_carrinho = np.random.randint(0,8,num_usuarios) + (visitas // 10)
   itens_carrinho = (itens_carrinho + (tempo_no_site//15)).astype(int)
 
-  #Para valor da compra, estou gerando um array com distribuição normal e coeeigindo possíveis valores negativos ou zerados.
+  #Para valor da compra, estou gerando um array com distribuição normal e corrigindo possíveis valores negativos ou zerados.
   valor_compra = (itens_carrinho * 35) + np.random.normal(0,10,num_usuarios)
   valor_compra[itens_carrinho == 0] = 0 #Numpy permite utilizar condicionais dentro do índice, aplicando a operação apenas nos valores "True"
   valor_compra[valor_compra < 0] = 0
