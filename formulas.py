@@ -38,7 +38,7 @@ def criar_histograma(array, media, mediana, desvio, nome_col="Dados"):
   nome_col: Nome exibido no título e rótulos do gráfico.'''
 
   plt.figure(figsize=(12, 5)) #Definindo o tamanho da área do gráfico.
-  plt.hist(                   #Cria um gistograma
+  plt.hist(                   #Cria um histograma
       array, 
       bins=30,                #Intervalo utilizado para agrupar valores
       color="skyblue",        #Cor do preenchimento das barras

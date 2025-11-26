@@ -2,7 +2,7 @@ import dataset as ds
 import formulas as fm
 import numpy as np
 
-#Objetivo: Descobrir qual é o perfil médio de usuários que acessam um determinado site, qual o tempo de navegação e o valor da compra (ticket médio) feito neste site.
+#Objetivo: Descobrir qual a quantidade média de visitas no site, qual o tempo de navegação e o valor da compra (ticket médio) feitos no site de e-commerce dentro de 1 mês.
 
 dataset = ds.criar_dataset()
 media, mediana, desvio, val_max, val_min = fm.calcula_estatistica(dataset)
