@@ -63,3 +63,30 @@ def criar_histograma(array, media, mediana, desvio, nome_col="Dados"):
   plt.legend()                              #Habilita o quadro de legenda no gráfico
   plt.grid(alpha=0.3)                       #Habilita linhas de grade no fundo do gráfico (quanto menor o alpha, mais transparente)
   plt.show()
+
+def histograma_sino(array, media, mediana, desvio, nome_col="Dados"):
+    #Esta função mostra a curva normal no histograma de forma resumida. 
+    plt.figure(figsize=(12,5))
+    plt.hist(array, bins=30, color="skyblue", edgecolor="black", alpha=0.7, density=True)
+
+    xmin, xmax = plt.xlim()                 #retorna os limites mínimo e máximo do eixo X calculados automaticamente           
+    x = np.linspace(xmin, xmax, 300)        #criando o vetor no eixo X da curva normal  | 200 a 400 pontos para curva suave | mais que 2000 pontos a curva fica linda mas lento para processar       
+    
+    #Abaixo é todo o cálculo da curva da distribuição normal 
+    coef = 1 / (desvio*np.sqrt(2*np.pi))            
+    exp = np.exp(-0.5 * ((x-media)/desvio)**2)
+    curva = coef * exp
+
+    plt.plot(
+       x,                                   #valores do eixo X
+       curva,                               # valores calculados da normal
+       color="darkred",                     #cor da linha
+       linewidth=2                        
+    )
+
+
+    plt.axvline(mediana, color="orange", linestyle="--", linewidth=2, label=f"Mediana = R${mediana:.2f}")
+    plt.title(f"Distribuição de {nome_col}") 
+    plt.xlabel(f"{nome_col}")      
+    plt.ylabel("Frequência")   
+    plt.show()
