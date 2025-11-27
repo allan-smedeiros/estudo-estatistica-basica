@@ -50,4 +50,4 @@ Os comentários no código foram escritos de forma detalhada para facilitar minh
 
 ## 🎥 **Vídeo Explicativo**
 
-👉 *(Link será adicionado em breve.)*
+👉 https://youtu.be/GrSgw10X1tI
